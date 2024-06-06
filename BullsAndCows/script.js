@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const newGameButton = document.getElementById('newGame');
     const resultDiv = document.getElementById('result');
     const historyDiv = document.getElementById('history');
+    const attemptsDiv = document.getElementById('attempts');
 
     let secretNumber = generateSecretNumber();
     let attempts = [];
@@ -23,9 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const { bulls, cows } = calculateBullsAndCows(secretNumber, guess);
             attempts.push({ guess, bulls, cows });
             updateHistory();
+            updateAttempts();
             if (bulls === 4) {
-                resultDiv.textContent = 'Congratulations! You win!!!';
+                resultDiv.textContent = `Congratulations! You win !!!`;
                 submitGuessButton.disabled = true;
+                guessInput.disabled = true;
+                launchConfetti();
             } else {
                 resultDiv.textContent = `Bulls: ${bulls}, Cows: ${cows}`;
             }
@@ -40,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         attempts = [];
         resultDiv.textContent = '';
         historyDiv.innerHTML = '';
+        attemptsDiv.textContent = 'Attempts: 0';
         submitGuessButton.disabled = false;
         guessInput.disabled = false;
         guessInput.value = '';
@@ -82,4 +87,17 @@ document.addEventListener('DOMContentLoaded', () => {
             historyDiv.appendChild(div);
         });
     }
+
+    function updateAttempts() {
+        attemptsDiv.textContent = `Attempts: ${attempts.length}`;
+    }
+
+    function launchConfetti() {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }
+    
 });

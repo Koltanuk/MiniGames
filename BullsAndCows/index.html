@@ -4,23 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BullsAndCows</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <header>
+        <h1>Bulls and Cows</h1>
+    </header>
+
+
     <div class="container">
-        <h1>Bulls And Cows</h1>
         <div id="game">
-            <input type="text" id="guess" placeholder="Enter a number" maxlength="4">
-            <button id="submitGuess">Submit Guess</button>
             <button id="newGame">Start New Game</button>
+            <div id="input container"> 
+                <input type="text" id="guess" placeholder="Enter a 4-digit number" maxlength="4">
+                <button id="submitGuess">Guess</button>
+            </div>
+        
             <div id="result"></div>
             <div id="history"></div>
+            <div id="attempts">Attempts: 0</div>
         </div>
-
-        <button id="returnMain" url="../MainPage/index.html">Return to Main Page</button>
-
     </div>
 
+    <footer>
+        <button id="returnMain">Return to Main Page</button>
+    </footer>
 
     <script src="script.js"></script>
     
