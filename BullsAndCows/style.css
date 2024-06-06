@@ -22,6 +22,38 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.main-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 70px; 
+    padding: 0 20px;
+}
+
+.description {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 300px;
+    color: #fff;
+}
+
+.description h2, .description h3 {
+    margin: 10px 0;
+}
+
+.description ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.description li {
+    margin: 5px 0;
+}
+
 .container {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.4); 
@@ -32,7 +64,7 @@ header {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    max-height: 60vh; 
+    max-height: 75vh; 
 }
 
 #game {
