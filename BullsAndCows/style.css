@@ -2,7 +2,6 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 100vh;
     background-image: url('cows.jpg'); 
@@ -31,44 +30,21 @@ header {
     padding: 0 20px;
 }
 
-.description {
+.container, .description {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.4); 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-width: 300px;
-    color: #fff;
-}
-
-.description h2, .description h3 {
-    margin: 10px 0;
-}
-
-.description ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.description li {
-    margin: 5px 0;
-}
-
-.container {
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.4); 
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-top: 60px; 
-    overflow: hidden;
+    max-height: 75vh;
+    overflow-y: auto;
+    flex: 1; 
+    margin: 10px;
     display: flex;
     flex-direction: column;
-    max-height: 75vh; 
 }
 
 #game {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,8 +90,10 @@ button:hover {
     font-size: 16px;
     color: #ccc;
     overflow-y: auto; 
-    max-height: calc(75vh - 300px); 
+    max-height: 35vh; 
+    flex-grow: 1;
     margin-bottom: 20px;
+
 }
 
 #attempts {
@@ -124,14 +102,27 @@ button:hover {
     color: #10461c;
 }
 
+.description h2, .description h3 {
+    margin: 10px 0;
+}
+
+.description ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.description li {
+    margin: 5px 0;
+}
+
 footer {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.4);
     padding: 10px 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    bottom: 0;
 }
 
 h1 {
