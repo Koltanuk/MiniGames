@@ -1,0 +1,66 @@
+.concert-one-regular {
+    font-family: "Concert One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color: #043264;
+    text-align: center;
+    font-family: Concert One, sans-serif;
+    height: 100vh;
+    width: auto;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#gameContainer {
+    position: relative;
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: flex-end;
+}
+
+#character {
+    position: absolute;
+    bottom: 5vh;
+    transition: bottom 0.4s ease-out;
+}
+
+#character img {
+    margin-left: 20vw;
+}
+
+#obstacle {
+    position: absolute;
+    bottom: 15vh;
+    width: 50px;
+    height: 50px;
+    animation: moveObstacle 2s linear infinite;
+}
+
+@keyframes moveObstacle {
+    0% {
+        right: -50px;
+    }
+
+    100% {
+        right: 100vw;
+    }
+}
+
+#gameOver {
+    display: none;
+    font-size: 48px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#character.jump {
+    bottom: 50vh;
+}
