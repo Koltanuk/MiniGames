@@ -7,11 +7,11 @@
 body {
     text-align: center;
     font-family: Concert One, sans-serif;
-    color: #957A51;
+    color: #043264;
     padding: 20px;
     margin: 0;
     height: 100vh;
-    background: linear-gradient(to bottom, #FFEDD0, #957A51);
+    background: linear-gradient(to bottom, #47DECD, #043264);
     overflow: hidden;
     position: relative;
 }
