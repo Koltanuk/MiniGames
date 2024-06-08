@@ -32,7 +32,9 @@ function moveObstacle() {
     const obstacles = [
         document.getElementById('obstacle1'),
         document.getElementById('obstacle2'),
-        document.getElementById('obstacle3')
+        document.getElementById('obstacle3'),
+        document.getElementById('obstacle4'),
+        document.getElementById('obstacle5')
     ];
     const character = document.getElementById("character");
     obstacles.forEach(obstacle => obstacle.style.display = 'none');

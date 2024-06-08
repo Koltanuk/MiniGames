@@ -84,7 +84,7 @@ body {
 
 #obstacle5 {
     position: absolute;
-    top: 50px;
+    bottom: 30px;
     display: none;
 }
 
