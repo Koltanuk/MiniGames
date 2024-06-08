@@ -1,0 +1,99 @@
+.pixelify-sans {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+body {
+    background-image: url(media/background.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #043264;
+    text-align: center;
+    font-family: Pixelify Sans;
+    font-size: large;
+    color: white;
+    height: 100vh;
+    width: auto;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+#gameContainer {
+    background-color: #043264;
+    position: relative;
+    width: 60vw;
+    height: 50vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 5px solid red;
+}
+
+#character {
+    position: absolute;
+    bottom: 5vh;
+    transition: bottom 0.4s ease-out;
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    50% {
+        bottom: 50px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+#obstacle1 {
+    position: absolute;
+    bottom: 30px;
+    display: none;
+}
+
+#obstacle2 {
+    position: absolute;
+    bottom: 30px;
+    display: none;
+}
+
+#obstacle3 {
+    position: absolute;
+    top: 50px;
+    display: none;
+}
+
+@keyframes moveObstacle {
+    0% {
+        right: -50px;
+    }
+
+    100% {
+        right: 100vw;
+    }
+}
+
+#gameOver {
+    display: none;
+    font-size: 48px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#character.jump {
+    bottom: 30vh;
+}
