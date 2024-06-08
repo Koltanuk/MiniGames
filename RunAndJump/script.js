@@ -1,4 +1,3 @@
-
 let gameSpeed = 10;
 let score = 0;
 let gameStarted = false;
@@ -72,7 +71,7 @@ function moveObstacle() {
             speed = 0;
             character.style.animation = 'none';
             selectedObstacle.style.animation = 'none';
-            alert('Game Over');
+            document.getElementById('gameOver').style.display = 'block';
         }
     }
 }
