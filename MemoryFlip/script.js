@@ -5,7 +5,7 @@ const winMessage = document.getElementById('win-message');
 const colors = [
     'red', 'red',
     'blue', 'blue',
-    'green', 'green',
+    'lime', 'lime',
     'yellow', 'yellow',
     'purple', 'purple',
     'orange', 'orange',
@@ -106,7 +106,7 @@ startButton.addEventListener('click', () => {
 window.addEventListener('resize', resizeCards);
 
 function resizeCards() {
-    const cardSize = Math.min(gameBoard.clientWidth / 6, gameBoard.clientHeight / 3) - 10;
+    const cardSize = Math.max(Math.min(gameBoard.clientWidth / 6, gameBoard.clientHeight / 3) - 10, 60);
     document.querySelectorAll('.card').forEach(card => {
         card.style.width = `${cardSize}px`;
         card.style.height = `${cardSize}px`;
