@@ -4,23 +4,45 @@
     font-style: normal;
 }
 
+.pixelify-sans {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+.shadows-into-light-regular {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
 body {
     text-align: center;
-    font-family: Concert One, sans-serif;
     color: #043264;
     padding: 20px;
     margin: 0;
     height: 100vh;
-    background: linear-gradient(to bottom, #47DECD, #043264);
+    background: linear-gradient(to bottom, #80c0b8, #043264);
     overflow: hidden;
     position: relative;
 }
 
+#bulls {
+    font-family: Concert One;
+}
+
+#run {
+    font-family: Pixelify Sans;
+}
+
 header {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: bold;
     margin-top: 2.5%;
     font-size: larger;
-    letter-spacing: 2px;
-    text-shadow: rgba(0, 0, 0, 0.245) 1px 1px 2px;
+    letter-spacing: 5px;
+    text-shadow: rgba(0, 0, 0, 0.245) 1px 3px 3px;
 }
 
 main {
