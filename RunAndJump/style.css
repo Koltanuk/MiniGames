@@ -70,7 +70,6 @@ body {
 
 #obstacle4 {
     position: absolute;
-    top: 230px;
     display: none;
     transform: scale(-1, 1);
 }
