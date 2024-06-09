@@ -1,14 +1,16 @@
-let gameSpeed = 10;
+// let gameSpeed = 10;
 let score = 0;
 let gameStarted = false;
 let speed = 2.5;
 let isGameOver = false;
+let backgroundPosition = 0;
 
 document.addEventListener("keydown", function (event) {
     if (event.code === "Space") {
         if (!gameStarted) {
             gameStarted = true;
             moveObstacle();
+            moveBackground();
         }
         if (!isGameOver) {
             jump();
@@ -76,4 +78,34 @@ function moveObstacle() {
             document.getElementById('gameOver').style.display = 'block';
         }
     }
+
+}
+// function moveBackground() {
+//     const background = document.getElementById('background');
+//     const interval = setInterval(() => {
+//         if (isGameOver) {
+//             clearInterval(interval);
+//             return;
+//         }
+//         backgroundPosition -= speed / 2;
+//         background.style.transform = `translateX(${backgroundPosition}px)`;
+//         if (backgroundPosition <= -window.innerWidth) {
+//             backgroundPosition = 0;
+//         }
+//     }, 5);
+// }
+
+function moveBackground() {
+    const background = document.getElementById('background');
+    const interval = setInterval(() => {
+        if (isGameOver) {
+            clearInterval(interval);
+            return;
+        }
+        backgroundPosition -= speed * 2; // Adjust speed if needed
+        background.style.backgroundPosition = `${backgroundPosition}px 0`; // Move background horizontally
+        if (backgroundPosition <= selectedObstacle.offsetWidth - 400) {
+            backgroundPosition = 0; // Reset position for smooth loop
+        }
+    }, 20); // Adjust interval timing if needed
 }
