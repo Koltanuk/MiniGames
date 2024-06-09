@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header, footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+main {
+    display: flex;
+    flex-grow: 1;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 6;
+    overflow: hidden;
+    padding: 10px;
+}
+
+#start-button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    max-height: calc(100vh - 180px);
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: #ccc;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
+}
+
+.card.open {
+    font-size: 50px;
+    pointer-events: none;
+}
+
+.card.match {
+    background-color: #00ff00;
+    pointer-events: none;
+}
+
+aside {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+#back-button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
