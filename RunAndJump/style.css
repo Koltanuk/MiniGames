@@ -51,32 +51,33 @@ body {
 
 #obstacle1 {
     position: absolute;
-    bottom: 30px;
+    bottom: 4vh;
     display: none;
     transform: scale(-1, 1);
 }
 
 #obstacle2 {
     position: absolute;
-    bottom: 30px;
+    bottom: 4vh;
     display: none;
 }
 
 #obstacle3 {
     position: absolute;
-    top: 50px;
+    top: 6vh;
     display: none;
 }
 
 #obstacle4 {
     position: absolute;
+    top: 20vh;
     display: none;
     transform: scale(-1, 1);
 }
 
 #obstacle5 {
     position: absolute;
-    bottom: 30px;
+    bottom: 4vh;
     display: none;
 }
 
