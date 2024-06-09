@@ -1,5 +1,6 @@
 const gameBoard = document.getElementById('game-board');
 const startButton = document.getElementById('start-button');
+const winMessage = document.getElementById('win-message');
 
 const colors = [
     'red', 'red',
@@ -27,6 +28,7 @@ function shuffle(array) {
 
 function createBoard() {
     gameBoard.innerHTML = '';
+    winMessage.classList.add('hidden');
     shuffle(colors);
     colors.forEach(color => {
         const card = document.createElement('div');
@@ -36,6 +38,7 @@ function createBoard() {
         gameBoard.appendChild(card);
         cards.push(card);
     });
+    resizeCards();
 }
 
 function handleCardClick(e) {
@@ -58,6 +61,9 @@ function handleCardClick(e) {
 function checkForMatch() {
     if (firstCard.dataset.color === secondCard.dataset.color) {
         disableCards();
+        if (document.querySelectorAll('.card.match').length === 18) {
+            showWinMessage();
+        }
         resetBoard();
     } else {
         unflipCards();
@@ -72,12 +78,12 @@ function disableCards() {
 function unflipCards() {
     lockBoard = true;
     setTimeout(() => {
-        firstCard.style.backgroundColor = '#ccc';
-        secondCard.style.backgroundColor = '#ccc';
+        firstCard.style.backgroundColor = '#2f26b8';
+        secondCard.style.backgroundColor = '#2f26b8';
         firstCard.classList.remove('open');
         secondCard.classList.remove('open');
         resetBoard();
-    }, 1500);
+    }, 1000);
 }
 
 function resetBoard() {
@@ -87,7 +93,7 @@ function resetBoard() {
 
 startButton.addEventListener('click', () => {
     cards.forEach(card => {
-        card.style.backgroundColor = '#ccc';
+        card.style.backgroundColor = '#2f26b8';
         card.classList.remove('open', 'match');
     });
     shuffle(colors);
@@ -96,5 +102,39 @@ startButton.addEventListener('click', () => {
     });
     resetBoard();
 });
+
+window.addEventListener('resize', resizeCards);
+
+function resizeCards() {
+    const cardSize = Math.min(gameBoard.clientWidth / 6, gameBoard.clientHeight / 3) - 10;
+    document.querySelectorAll('.card').forEach(card => {
+        card.style.width = `${cardSize}px`;
+        card.style.height = `${cardSize}px`;
+    });
+}
+
+function showWinMessage() {
+    winMessage.classList.remove('hidden');
+    startFireworks();
+}
+
+function startFireworks() {
+    const container = document.getElementById('fireworks-container');
+    for (let i = 0; i < 10; i++) {
+        setTimeout(() => createFirework(container), i * 500);
+    }
+}
+
+function createFirework(container) {
+    const firework = document.createElement('div');
+    firework.classList.add('firework');
+    firework.style.left = `${Math.random() * 100}%`;
+    firework.style.top = `${Math.random() * 100}%`;
+    container.appendChild(firework);
+
+    setTimeout(() => {
+        firework.remove();
+    }, 1000);
+}
 
 createBoard();
