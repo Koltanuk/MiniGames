@@ -78,8 +78,8 @@ function disableCards() {
 function unflipCards() {
     lockBoard = true;
     setTimeout(() => {
-        firstCard.style.backgroundColor = '#2f26b8';
-        secondCard.style.backgroundColor = '#2f26b8';
+        firstCard.style.backgroundColor = '#23804a';
+        secondCard.style.backgroundColor = '#23804a';
         firstCard.classList.remove('open');
         secondCard.classList.remove('open');
         resetBoard();
@@ -93,7 +93,7 @@ function resetBoard() {
 
 startButton.addEventListener('click', () => {
     cards.forEach(card => {
-        card.style.backgroundColor = '#2f26b8';
+        card.style.backgroundColor = '#23804a';
         card.classList.remove('open', 'match');
     });
     shuffle(colors);
