@@ -23,25 +23,32 @@
             <li>The obstacles will move faster with time</li>
         </ul>
     </header>
-    <div id="gameContainer">
-        <div id="background"></div>
-        <div id="character"><img src="media/cat_v2.gif" height="100px"></div>
-        <div id="obstacle1"><img src="media/obstacle1.gif" height="120px"></div>
-        <div id="obstacle2"><img src="media/obstacle2.gif" height="120px"></div>
-        <div id="obstacle3"><img src="media/obstacle3.gif" height="120px"></div>
-        <div id="obstacle4"><img src="media/obstacle4.gif" height="120px"></div>
-        <div id="obstacle5"><img src="media/obstacle5.gif" height="120px"></div>
-        <div id="gameOver">
-            <p>GAME OVER</p>
-            <a href="index.html">
-                <div class="restart">
-                    <p>Press to restart</p>
-                    <i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i>
-                </div>
-            </a>
+    <main>
+        <div id="score">
+            Score: 0
         </div>
-
-    </div>
+        <div id="gameContainer">
+            <div id="background"></div>
+            <div id="character"><img src="media/cat_v2.gif" height="100px"></div>
+            <div id="obstacle1"><img src="media/obstacle1.gif" height="120px"></div>
+            <div id="obstacle2"><img src="media/obstacle2.gif" height="120px"></div>
+            <div id="obstacle3"><img src="media/obstacle3.gif" height="120px"></div>
+            <div id="obstacle4"><img src="media/obstacle4.gif" height="120px"></div>
+            <div id="obstacle5"><img src="media/obstacle5.gif" height="120px"></div>
+            <div id="gameOver">
+                <p>GAME OVER</p>
+                <a href="index.html">
+                    <div id="restart">
+                        <ul>
+                            <li>To restart click here</li>
+                            <li>or use 'space'</li>
+                            <li><i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i></li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
     <footer>
         <div class="back">
             <a href="../MainPage/index.html">

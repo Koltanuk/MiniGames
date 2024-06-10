@@ -2,6 +2,7 @@ let score = 0;
 let gameStarted = false;
 let speed = 2.5;
 let isGameOver = false;
+let scoreInterval;
 
 document.addEventListener("keydown", function (event) {
     if (event.code === "Space") {
@@ -9,9 +10,14 @@ document.addEventListener("keydown", function (event) {
             gameStarted = true;
             moveObstacle();
             moveBackground();
+            startScore();
         }
         if (!isGameOver) {
             jump();
+        }
+        else if (isGameOver) {
+            resetGame();
+
         }
     }
 });
@@ -28,7 +34,6 @@ function jump() {
 
 function moveObstacle() {
     const gameContainer = document.getElementById('gameContainer');
-
     const obstacles = [
         document.getElementById('obstacle1'),
         document.getElementById('obstacle2'),
@@ -91,3 +96,40 @@ function moveBackground() {
         background.style.backgroundPosition = `${backgroundPosition}px 0`;
     }, 20);
 }
+
+function resetGame() {
+    document.getElementById('gameOver').style.display = 'none';
+    isGameOver = false;
+    speed = 2.5;
+    score = 0;
+    if (scoreInterval) {
+        clearInterval(scoreInterval);
+    }
+    backgroundPosition = 0;
+    document.getElementById('score').textContent = 'Score: 0';
+    moveObstacle();
+    moveBackground();
+    startScore();
+}
+
+function startScore() {
+    const scoreElement = document.getElementById('score');
+    let startTime = Date.now();
+    scoreInterval = setInterval(() => {
+        if (isGameOver) {
+            clearInterval(scoreInterval);
+            return;
+        }
+        let elapsedTime = Date.now() - startTime;
+        scoreElement.textContent = `Score: ${Math.floor(elapsedTime / 100)}`;
+    }, 100);
+}
+document.getElementById('restart').addEventListener('click', function (event) {
+    event.preventDefault();
+    resetGame();
+});
+
+document.getElementById('restart').addEventListener('click', function (event) {
+    event.preventDefault();
+    resetGame();
+});
