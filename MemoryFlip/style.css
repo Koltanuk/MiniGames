@@ -1,16 +1,32 @@
+.indie-flower-regular {
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
 body {
+    font-family: Indie Flower;
     display: flex;
     flex-direction: column;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('background-jungle-tropics-forest-fon-dzhungli-tropiki-les.jpg') no-repeat center center ; 
-    
+    background: url('background-jungle-tropics-forest-fon-dzhungli-tropiki-les.jpg') no-repeat center center;
     background-size: cover;
     overflow: hidden;
 }
 
-header, footer {
+header {
+    background-color: rgba(250, 248, 248, 0.226);
+    color: #d7ffdafd;
+    text-align: center;
+    padding: 10px 0;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
     background-color: rgba(250, 248, 248, 0.226);
     color: #d7ffdafd;
     text-align: center;
@@ -27,7 +43,10 @@ main {
     padding-bottom: 20px;
 }
 
-button, #back-button {
+button,
+#back-button {
+    font-family: Indie Flower;
+    font-weight: bolder;
     background-color: #32c964;
     color: #fff;
     border: none;
@@ -38,7 +57,7 @@ button, #back-button {
     border-radius: 10px;
     align-self: center;
     text-decoration: none;
-} 
+}
 
 #content {
     display: flex;
@@ -62,7 +81,7 @@ button, #back-button {
 #game-board {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-gap: 1vw; 
+    grid-gap: 1vw;
     width: 95%;
     height: 50%;
     box-sizing: border-box;
@@ -149,6 +168,7 @@ footer {
         opacity: 1;
         transform: scale(1);
     }
+
     100% {
         opacity: 0;
         transform: scale(3);
