@@ -103,19 +103,23 @@ startButton.addEventListener('click', () => {
     resetBoard();
 });
 
-window.addEventListener('resize', resizeCards);
+// window.addEventListener('resize', resizeCards);
 
-function resizeCards() {
-    const cardSize = Math.max(Math.min(gameBoard.clientWidth / 6, gameBoard.clientHeight / 3) - 10, 60);
-    document.querySelectorAll('.card').forEach(card => {
-        card.style.width = `${cardSize}px`;
-        card.style.height = `${cardSize}px`;
-    });
-}
+// function resizeCards() {
+//     const cardSizeVW = Math.min(window.innerWidth / 6 - 2, window.innerHeight / 3 - 2);
+//     const cardSize = Math.max(cardSizeVW, 10); // Using relative units
+//     document.querySelectorAll('.card').forEach(card => {
+//         card.style.width = `${cardSize}vw`;
+//         card.style.height = `${cardSize}vw`;
+//     });
+// }
 
 function showWinMessage() {
     winMessage.classList.remove('hidden');
     startFireworks();
+    setTimeout(() => {
+        winMessage.classList.add('hidden');
+    }, 2000);
 }
 
 function startFireworks() {
