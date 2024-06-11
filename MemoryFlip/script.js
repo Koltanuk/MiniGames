@@ -103,17 +103,6 @@ startButton.addEventListener('click', () => {
     resetBoard();
 });
 
-// window.addEventListener('resize', resizeCards);
-
-// function resizeCards() {
-//     const cardSizeVW = Math.min(window.innerWidth / 6 - 2, window.innerHeight / 3 - 2);
-//     const cardSize = Math.max(cardSizeVW, 10); // Using relative units
-//     document.querySelectorAll('.card').forEach(card => {
-//         card.style.width = `${cardSize}vw`;
-//         card.style.height = `${cardSize}vw`;
-//     });
-// }
-
 function showWinMessage() {
     winMessage.classList.remove('hidden');
     startFireworks();
