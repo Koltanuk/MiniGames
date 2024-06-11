@@ -128,8 +128,3 @@ document.getElementById('restart').addEventListener('click', function (event) {
     event.preventDefault();
     resetGame();
 });
-
-document.getElementById('restart').addEventListener('click', function (event) {
-    event.preventDefault();
-    resetGame();
-});
