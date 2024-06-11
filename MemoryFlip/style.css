@@ -27,7 +27,7 @@ main {
     padding-bottom: 20px;
 }
 
-button {
+button, #back-button {
     background-color: #32c964;
     color: #fff;
     border: none;
@@ -37,6 +37,7 @@ button {
     margin: 10px 0;
     border-radius: 10px;
     align-self: center;
+    text-decoration: none;
 } 
 
 #content {
