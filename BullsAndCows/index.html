@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BullsAndCows</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Concert+One&family=Pixelify+Sans:wght@400..700&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+
 </head>
+
 <body>
 
     <header>
         <h1>Bulls and Cows</h1>
     </header>
-
-    <div class="main-content">
+    <main>
         <div class="container">
             <div id="game">
                 <button id="newGame">Start New Game</button>
-                <div id="input container"> 
+                <div id="input container">
                     <input type="text" id="guess" placeholder="Enter a 4-digit number" maxlength="4">
                     <button id="submitGuess">Guess</button>
                 </div>
-            
+
                 <div id="result"></div>
                 <div id="history"></div>
                 <div id="attempts">Attempts: 0</div>
@@ -30,7 +37,9 @@
 
         <div class="description">
             <h2>How to Play</h2>
-            <p>Bulls and Cows is a classic code-breaking game. The objective is to guess a 4-digit secret number where each digit is unique.</p>
+            <p>Bulls and Cows is a classic code-breaking game. The objective is to guess a 4-digit secret number
+                where
+                each digit is unique.</p>
             <h3>Rules:</h3>
             <ul>
                 <li>Enter a 4-digit number with unique digits.</li>
@@ -40,13 +49,13 @@
                 <li>Use the feedback to guess the correct number.</li>
             </ul>
         </div>
-
-    </div>    
+    </main>
     <footer>
-        <button id="returnMain" url="../MainPage/index.html">Return to Main Page</button>
+        <a id="returnMain" href="../MainPage/index.html">Return to Main Page</a>
     </footer>
 
     <script src="script.js"></script>
-    
+
 </body>
+
 </html>
