@@ -29,7 +29,7 @@ body {
     text-align: center;
     flex-direction: column;
     color: #043264;
-    padding: 20px;
+    padding: 0;
     margin: 0;
     min-height: 100vh;
     background: linear-gradient(to bottom, #80c0b8, #043264);
@@ -51,10 +51,8 @@ body {
 
 header {
     font-family: "Shadows Into Light", cursive;
-    font-weight: bold;
-    margin-top: 2.5%;
-    margin-bottom: 5%;
-    font-size: larger;
+    font-weight: bolder;
+    font-size: 2vh;
     letter-spacing: 5px;
     text-shadow: rgba(0, 0, 0, 0.245) 1px 3px 3px;
 }
@@ -76,6 +74,7 @@ main {
     flex-flow: row wrap;
     width: 100%;
     flex-grow: 1;
+    height: 100%;
 }
 
 canvas {
