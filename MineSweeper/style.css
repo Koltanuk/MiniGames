@@ -27,11 +27,11 @@ body {
     cursor: pointer;
 }
 
-.cell:hover:not(.opened) {
+.cell:hover:not(.opened, .flag) {
     background-color: #a0a0a0;
 }
 
-.cell:active:not(.opened) {
+.cell:active:not(.opened, .flag) {
     background-color: #808080;
 }
 
@@ -47,6 +47,14 @@ body {
 
 .flag {
     background-color: orange;
+}
+
+.flag:hover {
+    background-color: rgb(196, 128, 0);
+}
+
+.flag:active {
+    background-color: rgb(103, 67, 0);
 }
 
 #message {

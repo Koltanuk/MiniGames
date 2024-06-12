@@ -70,30 +70,6 @@ const openCell = (row, col) => {
     renderBoard();
     checkWin();
 };
-// const openCell = (row, col) => {
-//     if (gameBoard[row][col].isOpen || gameOver) return;
-//     gameBoard[row][col].isOpen = true;
-
-//     if (gameBoard[row][col].value === 9) {
-//         gameOver = true;
-//         gameBoard.forEach(row => {
-//             row.forEach(cell => {
-//                 if (cell.value === 9) cell.isOpen = true;
-//             });
-//         });
-//         renderBoard();
-//         displayMessage('Game Over!');
-//         return;
-//     } else if (gameBoard[row][col].value === 0) {
-//         for (let i = Math.max(0, row - 1); i <= Math.min(rows - 1, row + 1); i++) {
-//             for (let j = Math.max(0, col - 1); j <= Math.min(cols - 1, col + 1); j++) {
-//                 openCell(i, j);
-//             }
-//         }
-//     }
-//     renderBoard();
-//     checkWin();
-// };
 
 const checkWin = () => {
     let win = true;
