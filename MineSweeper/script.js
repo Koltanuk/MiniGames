@@ -86,6 +86,7 @@ const checkWin = () => {
         gameOver = true;
         document.getElementById('message').style.display = 'block';
         displayMessage('You Win!');
+        launchConfetti()
     }
 };
 
@@ -150,4 +151,12 @@ document.getElementById('game-board').addEventListener('contextmenu', (event) =>
     const col = parseInt(cell.getAttribute('data-col'));
     handleRightClick(event, row, col);
 });
+function launchConfetti() {
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+}
+
 initializeGame();
