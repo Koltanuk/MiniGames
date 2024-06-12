@@ -108,7 +108,7 @@ function showWinMessage() {
     startFireworks();
     setTimeout(() => {
         winMessage.classList.add('hidden');
-    }, 2000);
+    }, 6000);
 }
 
 function startFireworks() {
@@ -118,16 +118,21 @@ function startFireworks() {
     }
 }
 
-function createFirework(container) {
+function createFirework(container){
     const firework = document.createElement('div');
     firework.classList.add('firework');
     firework.style.left = `${Math.random() * 100}%`;
     firework.style.top = `${Math.random() * 100}%`;
+
+    const colors = ['#ff0', '#f00', '#0f0', '#00f', '#f0f', '#0ff'];
+    firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
     container.appendChild(firework);
+
 
     setTimeout(() => {
         firework.remove();
-    }, 1000);
+    }, 3000);
 }
 
 createBoard();
