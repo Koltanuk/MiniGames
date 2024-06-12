@@ -171,10 +171,9 @@ function launchConfetti() {
         confetti.style.animationDelay = Math.random() * 3 + 's';
         confettiContainer.appendChild(confetti);
     }
-
     setTimeout(() => {
         document.body.removeChild(confettiContainer);
-    }, 3000);
+    }, 5000);
 }
 
 function getRandomColor() {
