@@ -108,13 +108,13 @@ function showWinMessage() {
     startFireworks();
     setTimeout(() => {
         winMessage.classList.add('hidden');
-    }, 2000);
+    }, 4000);
 }
 
 function startFireworks() {
     const container = document.getElementById('fireworks-container');
     for (let i = 0; i < 10; i++) {
-        setTimeout(() => createFirework(container), i * 500);
+        setTimeout(() => createFirework(container), i * 100);
     }
 }
 
@@ -123,11 +123,14 @@ function createFirework(container) {
     firework.classList.add('firework');
     firework.style.left = `${Math.random() * 100}%`;
     firework.style.top = `${Math.random() * 100}%`;
+    const colors = ['#ff0', '#f00', '#0f0', '#00f', '#f0f', '#0ff'];
+    firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
     container.appendChild(firework);
 
     setTimeout(() => {
         firework.remove();
-    }, 1000);
+    }, 1500);
 }
 
 createBoard();
