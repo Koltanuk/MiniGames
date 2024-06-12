@@ -53,8 +53,8 @@ body {
     background-color: rgb(196, 128, 0);
 }
 
-.flag:active {
-    background-color: rgb(103, 67, 0);
+.game-over .flag:hover {
+    background-color: orange;
 }
 
 #message {

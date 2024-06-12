@@ -89,7 +89,8 @@ const checkWin = () => {
 
 const handleRightClick = (event, row, col) => {
     event.preventDefault();
-    if (!gameBoard[row][col].isOpen && !gameOver) {
+    if (isFirstClick || gameBoard[row][col].isOpen || gameOver) return;
+    if (!gameBoard[row][col].isOpen) {
         gameBoard[row][col].flag = !gameBoard[row][col].flag;
         renderBoard();
     }
