@@ -58,6 +58,7 @@ const openCell = (row, col) => {
             });
         });
         renderBoard();
+        document.getElementById('message').style.display = 'block';
         displayMessage('Game Over!');
         return;
     } else if (gameBoard[row][col].value === 0) {
@@ -83,6 +84,7 @@ const checkWin = () => {
     }
     if (win) {
         gameOver = true;
+        document.getElementById('message').style.display = 'block';
         displayMessage('You Win!');
     }
 };
@@ -107,7 +109,6 @@ const renderBoard = () => {
                 cellElement.classList.add('opened');
                 if (cell.value === 9) {
                     cellElement.classList.add('bomb');
-                    cellElement.textContent = '*';
                 } else if (cell.value !== 0) {
                     cellElement.textContent = cell.value;
                 }
@@ -138,6 +139,7 @@ const initializeGame = () => {
     gameBoard = generateBoard();
     isFirstClick = true;
     gameOver = false;
+    document.getElementById('message').style.display = 'none';
     displayMessage('');
     renderBoard();
 };
