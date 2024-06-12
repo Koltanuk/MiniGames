@@ -4,13 +4,14 @@ const minMines = 8;
 const maxMines = 10;
 let gameBoard = [];
 let isFirstClick = true;
+let gameOver = false;
 
 const generateBoard = () => {
     const board = [];
     for (let r = 0; r < rows; r++) {
         const row = [];
         for (let c = 0; c < cols; c++) {
-            row.push({ value: 0, isOpen: false });
+            row.push({ value: 0, isOpen: false, flag: false });
         }
         board.push(row);
     }
@@ -34,7 +35,7 @@ const generateMines = (firstRow, firstCol) => {
 const setCellValues = () => {
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
-            if (gameBoard[r][c].value === 9) continue; // Пропустить клетки с минами
+            if (gameBoard[r][c].value === 9) continue;
             let minesCount = 0;
             for (let i = Math.max(0, r - 1); i <= Math.min(rows - 1, r + 1); i++) {
                 for (let j = Math.max(0, c - 1); j <= Math.min(cols - 1, c + 1); j++) {
@@ -45,19 +46,19 @@ const setCellValues = () => {
         }
     }
 };
-
 const openCell = (row, col) => {
-    if (gameBoard[row][col].isOpen) return;
+    if (gameBoard[row][col].isOpen || gameBoard[row][col].flag || gameOver) return;
     gameBoard[row][col].isOpen = true;
 
     if (gameBoard[row][col].value === 9) {
+        gameOver = true;
         gameBoard.forEach(row => {
             row.forEach(cell => {
                 if (cell.value === 9) cell.isOpen = true;
             });
         });
         renderBoard();
-        alert('Game Over!');
+        displayMessage('Game Over!');
         return;
     } else if (gameBoard[row][col].value === 0) {
         for (let i = Math.max(0, row - 1); i <= Math.min(rows - 1, row + 1); i++) {
@@ -67,32 +68,57 @@ const openCell = (row, col) => {
         }
     }
     renderBoard();
+    checkWin();
 };
-const handleRightClick = (event, row, col) => {
-    event.preventDefault(); // Предотвращаем стандартное поведение контекстного меню
-    // Проверяем, что клетка не открыта
-    if (!gameBoard[row][col].isOpen) {
-        // Проверяем, есть ли уже флаг в клетке
-        if (gameBoard[row][col].flag) {
-            // Если флаг уже установлен, снимаем его
-            gameBoard[row][col].flag = false;
-        } else {
-            // Иначе устанавливаем флаг в клетку
-            gameBoard[row][col].flag = true;
+// const openCell = (row, col) => {
+//     if (gameBoard[row][col].isOpen || gameOver) return;
+//     gameBoard[row][col].isOpen = true;
+
+//     if (gameBoard[row][col].value === 9) {
+//         gameOver = true;
+//         gameBoard.forEach(row => {
+//             row.forEach(cell => {
+//                 if (cell.value === 9) cell.isOpen = true;
+//             });
+//         });
+//         renderBoard();
+//         displayMessage('Game Over!');
+//         return;
+//     } else if (gameBoard[row][col].value === 0) {
+//         for (let i = Math.max(0, row - 1); i <= Math.min(rows - 1, row + 1); i++) {
+//             for (let j = Math.max(0, col - 1); j <= Math.min(cols - 1, col + 1); j++) {
+//                 openCell(i, j);
+//             }
+//         }
+//     }
+//     renderBoard();
+//     checkWin();
+// };
+
+const checkWin = () => {
+    let win = true;
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            if (gameBoard[r][c].value !== 9 && !gameBoard[r][c].isOpen) {
+                win = false;
+                break;
+            }
         }
-        // Перерисовываем доску
+    }
+    if (win) {
+        gameOver = true;
+        displayMessage('You Win!');
+    }
+};
+
+const handleRightClick = (event, row, col) => {
+    event.preventDefault();
+    if (!gameBoard[row][col].isOpen && !gameOver) {
+        gameBoard[row][col].flag = !gameBoard[row][col].flag;
         renderBoard();
     }
 };
-const boardContainer = document.getElementById('game-board');
-boardContainer.addEventListener('contextmenu', (event) => {
-    // Получаем координаты клетки, на которую был совершен клик
-    const cell = event.target;
-    const row = parseInt(cell.getAttribute('data-row'));
-    const col = parseInt(cell.getAttribute('data-col'));
-    // Вызываем функцию обработки правого клика
-    handleRightClick(event, row, col);
-});
+
 const renderBoard = () => {
     const boardContainer = document.getElementById('game-board');
     boardContainer.innerHTML = '';
@@ -126,10 +152,23 @@ const renderBoard = () => {
     });
 };
 
+const displayMessage = (message) => {
+    const messageContainer = document.getElementById('message');
+    messageContainer.textContent = message;
+};
+
 const initializeGame = () => {
     gameBoard = generateBoard();
     isFirstClick = true;
+    gameOver = false;
+    displayMessage('');
     renderBoard();
 };
 
+document.getElementById('game-board').addEventListener('contextmenu', (event) => {
+    const cell = event.target;
+    const row = parseInt(cell.getAttribute('data-row'));
+    const col = parseInt(cell.getAttribute('data-col'));
+    handleRightClick(event, row, col);
+});
 initializeGame();
