@@ -151,12 +151,33 @@ document.getElementById('game-board').addEventListener('contextmenu', (event) =>
     const col = parseInt(cell.getAttribute('data-col'));
     handleRightClick(event, row, col);
 });
+
 function launchConfetti() {
-    confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 }
-    });
+    const confettiContainer = document.createElement('div');
+    confettiContainer.style.position = 'fixed';
+    confettiContainer.style.top = '0';
+    confettiContainer.style.left = '0';
+    confettiContainer.style.width = '100%';
+    confettiContainer.style.height = '100%';
+    confettiContainer.style.pointerEvents = 'none';
+    confettiContainer.style.zIndex = '9999';
+    document.body.appendChild(confettiContainer);
+
+    for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = getRandomColor();
+        confetti.style.animationDelay = Math.random() * 3 + 's';
+        confettiContainer.appendChild(confetti);
+    }
+    setTimeout(() => {
+        document.body.removeChild(confettiContainer);
+    }, 5000);
 }
 
+function getRandomColor() {
+    const colors = ['#f00', '#0f0', '#00f', '#ff0', '#f0f', '#0ff', '#fff', '#ffa500'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
 initializeGame();
