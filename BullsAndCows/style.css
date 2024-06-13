@@ -33,7 +33,7 @@ header {
 
 main {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-around;
 }
 
@@ -59,8 +59,13 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     max-height: 75vh;
     overflow-y: auto;
-    margin: 10px;
     width: 30%;
+}
+
+@media (max-width: 999px) {
+    .description {
+        min-width: 90%;
+    }
 }
 
 #game {
@@ -150,7 +155,7 @@ button {
 }
 
 footer {
-    width: 10%;
+    width: auto;
     height: 5%;
     margin: 10px;
     text-align: center;
@@ -161,6 +166,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: nowrap;
 }
 
 h1 {
