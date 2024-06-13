@@ -23,18 +23,25 @@
     font-style: normal;
 }
 
+.spicy-rice-regular {
+    font-family: "Spicy Rice", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 body {
-    display: flex;
-    justify-content: flex-start;
     text-align: center;
-    flex-direction: column;
     color: #043264;
-    padding: 20px;
+    padding: 0;
     margin: 0;
     min-height: 100vh;
     background: linear-gradient(to bottom, #80c0b8, #043264);
     background-size: cover;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #bulls {
@@ -49,12 +56,20 @@ body {
     font-family: Indie Flower;
 }
 
+#minesweeper {
+    letter-spacing: 1px;
+    font-family: Spicy Rice;
+}
+
+#minesweeper h2 {
+    letter-spacing: 3px;
+}
+
 header {
+    top: 0;
     font-family: "Shadows Into Light", cursive;
-    font-weight: bold;
-    margin-top: 2.5%;
-    margin-bottom: 5%;
-    font-size: larger;
+    font-weight: bolder;
+    font-size: 2vh;
     letter-spacing: 5px;
     text-shadow: rgba(0, 0, 0, 0.245) 1px 3px 3px;
 }
@@ -69,13 +84,17 @@ header {
     }
 }
 
+
+
 main {
+    text-align: center;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    flex-flow: row wrap;
-    width: 100%;
-    flex-grow: 1;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 60%;
+    height: auto;
+    margin: auto;
 }
 
 canvas {
@@ -89,15 +108,12 @@ canvas {
 
 .card {
     min-width: 300px;
-    width: 50vh;
+    width: 25vw;
     aspect-ratio: 1 / 0.7;
     border-radius: 8px;
     position: relative;
     cursor: pointer;
-    margin: 2%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 1%;
     transition: all 1s;
 }
 

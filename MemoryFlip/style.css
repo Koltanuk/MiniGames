@@ -160,7 +160,7 @@ footer {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    animation: explode 3s ease-out forwards;
+    animation: explode 2s ease-out forwards;
 }
 
 @keyframes explode {
